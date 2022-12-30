@@ -1,0 +1,21 @@
+<main>
+  <header class="container">
+    <app-cart-header [numberItem]="numberItems"></app-cart-header>
+
+  </header>
+  <section class="container">
+    <app-product-list [products]="products" (onRemoveProduct)="handleRemoveProduct($event)"
+      (onUpdateQuantity)="handleUpdateQuantity($event)"></app-product-list>
+
+    <div class="empty-product" *ngIf="products.length === 0">
+      <h3>There are no product in your cart</h3>
+      <button>Shipping now</button>
+    </div>
+  </section>
+
+
+  <section class="container">
+
+    <app-footer [subTotal]="subTotal" [tax]="tax" [total]="total" [discount]="discount"></app-footer>
+  </section>
+</main>
