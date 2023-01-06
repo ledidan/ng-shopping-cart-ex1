@@ -29,7 +29,7 @@ export class AppComponent {
   ];
   numberItems: number = 0;
   subTotal: number = 0;
-  discountPercent: number = 10;
+  discountPercent: number = 0;
   discount: number = 0;
   taxPercent: number = 10;
   tax: number = 0;
