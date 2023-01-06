@@ -1,0 +1,6 @@
+<div class="promotion">
+    <label for="promo-code">Have A Promo Code?</label>
+    <input type="text" class="form-control" (ngModel)="promoCode" id="promoCode" name="promoCode"
+        (keyup)="applyPromoCode()" />
+    <button type="button" (click)="applyPromoCode()"></button>
+</div>

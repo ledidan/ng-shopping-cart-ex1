@@ -29,19 +29,19 @@ export class AppComponent {
   ];
   numberItems: number = 0;
   subTotal: number = 0;
-  discountPercent: number = 0;
+  discountPercent: number = 10;
   discount: number = 0;
   taxPercent: number = 10;
   tax: number = 0;
   total: number = 0;
 
-  promoCode: PromoCode[] = [
+  promoCodes: PromoCode[] = [
     {
       code: 'DADWD',
       discountPercent: 10,
     },
     {
-      code: 'ADWE',
+      code: 'ADWEAA',
       discountPercent: 20,
     },
   ];
@@ -56,7 +56,7 @@ export class AppComponent {
 
     this.discount = (this.subTotal * this.discountPercent) / 100;
     this.tax = ((this.subTotal - this.discount) * this.taxPercent) / 100;
-    this.total = Number((this.tax + this.subTotal).toFixed(0));
+    this.total = Number((this.subTotal - this.discount).toFixed(0));
   }
   handleRemoveProduct(productId: number) {
     // Delete product
@@ -75,8 +75,10 @@ export class AppComponent {
   }
 
   handleApplyCodePromo(code: string) {
-    const proCode = this.promoCode.find((item) => item.code === code);
-    this.discountPercent = proCode ? proCode.discountPercent : 0;
+    const promoCode = this.promoCodes.find(
+      (promoCode) => promoCode.code === code
+    );
+    this.discountPercent = promoCode ? promoCode.discountPercent : 0;
     this.discount = (this.subTotal * this.discountPercent) / 100;
 
     if (this.discount > 0) {

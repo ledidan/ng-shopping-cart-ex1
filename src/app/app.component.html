@@ -14,8 +14,8 @@
   </section>
 
 
-  <section class="container">
-
+  <section class="container" *ngIf="products.length > 0">
+    <app-promote-code (onApplyPromoCode)="handleApplyCodePromo($event)"></app-promote-code>
     <app-footer [subTotal]="subTotal" [tax]="tax" [total]="total" [discount]="discount"></app-footer>
   </section>
 </main>
