@@ -1,0 +1,15 @@
+<div class="text">
+    <h3>District / City</h3>
+    <select id="city" (change)="changeCity($event)">
+        <option value="{{data.city}}" *ngFor="let data of vietnamData">
+            {{data.city}}
+        </option>
+    </select>
+    <br>
+    <h4>Districts / Town</h4>
+    <select id="district">
+        <option value="{{district}}" *ngFor="let district of districts">
+            {{district}}
+        </option>
+    </select>
+</div>

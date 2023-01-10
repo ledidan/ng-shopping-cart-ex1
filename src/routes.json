@@ -1,0 +1,3 @@
+{
+    "/:resources/:id/show": "/:resources/:id"
+}

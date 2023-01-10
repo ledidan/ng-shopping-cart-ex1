@@ -1,0 +1,13 @@
+<p appHighLight="red">about-component works!</p>
+
+<ul [ngSwitch]="loginName">
+    <li *ngSwitchCase="'user'">
+        <p appHighLight="blue">User is logged in ....</p>
+    </li>
+    <li *ngSwitchCase="'admin'">
+        <app-home-component></app-home-component>
+    </li>
+    <li *ngSwitchDefault>
+        <p>Please choose option</p>
+    </li>
+</ul>

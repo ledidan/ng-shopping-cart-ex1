@@ -5,7 +5,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   templateUrl: './promote-code.component.html',
 })
 export class PromoteCodeComponent implements OnInit {
-  promoCode: string = '';
+  public promoCode: string = '';
 
   @Output() onApplyPromoCode = new EventEmitter();
   constructor() {}

@@ -1,0 +1,52 @@
+<div class="formgroup-inline">
+    <!-- <form [formGroup]="formData" (ngSubmit)="onSubmit()" style="display:block; ">
+        <label for="first-name">First Name: </label>
+        <input id="first-name" type="text" formControlName="firstName">
+
+        <label for="last-name">Last Name: </label>
+        <input id="last-name" type="text" formControlName="lastName">
+        <div formGroupName="address">
+            <h4>Address</h4>
+
+            <label for="street">Street: </label>
+            <input id="street" type="text" formControlName="street">
+
+            <label for="city">City: </label>
+            <input id="city" type="text" formControlName="city">
+
+            <label for="state">State: </label>
+            <input id="state" type="text" formControlName="state">
+
+            <label for="zip">Zip Code: </label>
+            <input id="zip" type="text" formControlName="zip">
+        </div>
+        <button type="submit" class="mybutton">Submit</button>
+    </form> -->
+
+    <h2>FormBuilder</h2>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <label for="first-name">First Name: </label>
+        <input id="first-name" type="text" formControlName="firstName">
+        <div *ngIf="!profileForm.get('firstName')?.valid" style="color: red;">
+            Name is required
+        </div>
+        <label for="last-name">Last Name: </label>
+        <input id="last-name" type="text" formControlName="lastName">
+        <div formGroupName="address">
+            <h2>Address</h2>
+
+            <label for="street">Street: </label>
+            <input id="street" type="text" formControlName="street">
+
+            <label for="city">City: </label>
+            <input id="city" type="text" formControlName="city">
+
+            <label for="state">State: </label>
+            <input id="state" type="text" formControlName="state">
+
+            <label for="zip">Zip Code: </label>
+            <input id="zip" type="text" formControlName="zip">
+        </div>
+        <button type="submit" class="mybutton" [disabled]="!profileForm.valid">Submit</button>
+    </form>
+</div>
