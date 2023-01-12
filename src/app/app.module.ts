@@ -1,6 +1,8 @@
+import { GetDataComponent } from '../app/components/get-data/get-data.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
@@ -14,8 +16,10 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 import { AboutComponentComponent } from './about-component/about-component.component';
 import { HighLightDirective } from './Directives/high-light.directive';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
-import { GetDataComponent } from './get-data/get-data.component';
-import { HttpClientModule } from '@angular/common/http';
+import { PostDataComponent } from './post-data/post-data.component';
+import { ButtonComponent } from './components/button/button.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { TaskItemComponent } from './components/task-item/task-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +34,10 @@ import { HttpClientModule } from '@angular/common/http';
     HighLightDirective,
     ReactiveFormComponent,
     GetDataComponent,
+    PostDataComponent,
+    ButtonComponent,
+    TasksComponent,
+    TaskItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

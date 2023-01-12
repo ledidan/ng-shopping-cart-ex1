@@ -15,5 +15,15 @@ export class HttpServerService {
   };
   constructor(private httpClient: HttpClient) {}
 
-  public getComments(): Observable;
+  public getComments(): Observable<any> {
+    const url = `${this.REST_API_SERVER}/comments`;
+    return this.httpClient.get<any>(url, this.httpOptions);
+  }
+
+  public getPostComments(payload: any): Observable<any> {
+    const url = `${this.REST_API_SERVER}/comments`;
+    console.log(payload);
+
+    return this.httpClient.post<any>(url, payload, this.httpOptions);
+  }
 }
