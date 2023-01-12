@@ -1,5 +1,7 @@
+import { UiService } from 'src/app/Services/ui.service';
 import { HttpServerService } from './../../Services/http-server.service';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-get-data',
@@ -7,14 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./get-data.component.css'],
 })
 export class GetDataComponent implements OnInit {
-  constructor(private httpServerService: HttpServerService) {}
   public title: string = 'Tracker';
+  showAddTask: boolean;
+  subscription: Subscription;
+
+  constructor(
+    private httpServerService: HttpServerService,
+    private uiService: UiService
+  ) {
+    this.subscription = this.uiService
+      .onToggle()
+      .subscribe((value) => (this.showAddTask = value));
+  }
+
   ngOnInit(): void {
     this.httpServerService
       .getComments()
       .subscribe((data) => console.log('getComments', data));
   }
-  toggleAddTask() {
-    console.log('toggle');
+  toggleTask() {
+    this.uiService.toggleAddTask();
   }
 }
